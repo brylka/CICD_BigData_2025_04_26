@@ -17,7 +17,7 @@ else:
     # np. użycie bazy sqlite
     pass
 
-@application.route('/ala')
+@application.route('/')
 def hello_world():
     text = f'<h1>Hello, BigData z Pythonem!</h1><p>Przykład CI/CD - automatyczne wdrażanie!</p><p>Wykonał: Bartosz Bryniarski'
     if ENV == 'developerskie':
