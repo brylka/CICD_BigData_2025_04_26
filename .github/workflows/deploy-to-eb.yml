@@ -24,7 +24,12 @@ jobs:
           pip install -r requirements.txt
           pip install awsebcli
 
+      - name: Run tests
+        run: |
+          pytest -v
+
       - name: Configure AWS credentials
+        if: success()
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -32,6 +37,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
 
       - name: Deploy to Elastic Beanstalk
+        if: success()
         run: |
           eb init cicd-20250426 -p python-3.13 --region ${{ vars.AWS_REGION }}
           eb deploy Cicd-20250426-env
