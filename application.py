@@ -105,5 +105,8 @@ def delete(task_id):
     return redirect(url_for('index'))
 
 
+app = application
+
+
 if __name__ == '__main__':
     application.run(debug=True)
