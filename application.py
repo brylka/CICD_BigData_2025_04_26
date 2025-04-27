@@ -210,7 +210,6 @@ def index():
                                       weather_analysis="")
 
 
-# Niezbędne dla AWS Elastic Beanstalk
 application = app
 
 if __name__ == '__main__':
